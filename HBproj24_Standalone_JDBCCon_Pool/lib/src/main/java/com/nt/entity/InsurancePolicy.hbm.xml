@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    <class name="com.nt.entity.InsurancePolicy" table="INSURANCEPOLICY" dynamic-insert="true"><!-- IF TABLE NAME AND COLUMN NAME SAME AS ENTITY THEN OPTIONAL TO USE "column" AND "table" -->
+    <id name="policyId" column="POLICYID">
+    <!-- <generator class="increment"></generator> -->
+    </id>
+    <property name="policyName" column="POLICYNAME"/>
+    <property name="policyType" column="POLICYTYPE"/>
+    <property name="company" column="COMPANY"/>
+    <property name="tenure" column="TENURE"/>
+    </class>
+    </hibernate-mapping>

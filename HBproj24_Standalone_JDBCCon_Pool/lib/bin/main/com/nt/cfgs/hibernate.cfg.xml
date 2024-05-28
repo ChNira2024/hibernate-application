@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+	<hibernate-configuration>
+	<session-factory>
+	
+	<!-- Database Connection Propeties and its theory
+	1.("hibernate name is optional") 
+	2.(driver class also optional from java8 onwards becoz of autoloading jdbc driver class..)
+	-->
+	
+	<!-- <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property> -->
+	<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+	<property name="hibernate.connection.username">hr</property>
+	<property name="connection.password">hr</property>
+	 <!--  hikari cp properties -->
+	<!-- Takes 20sec time before throwing error.. when pool can not give jdbc con object -->
+	<property name="hibernate.hikari.connectionTimeout">20000</property>
+	<!-- when pool is created it maintains 10 jdbc con objects -->
+	<property name="hibernate.hikari.minimumIdle">10</property>
+	<!-- when pool can grow max of 20 con objects -->
+	<property name="hibernate.hikari.maximumPoolSize">20</property>
+	<!-- if any con object in the pool is idle for30secs then it will be destroyed -->
+	<property name="hibernate.hikari.idleTimeout">30000</property>  
+
+                  <!-- Vibur properties -->
+               <!--   <property name="hibernate.vibur.poolInitialSize">10</property>
+                 <property name="hibernate.vibur.poolMaxSize">100</property>
+                 <property name="hibernate.vibur.connectionIdleLimitInSeconds">30</property> -->
+                 
+                 <!-- c3Po properties -->
+             <!--     <property name="hibernate.c3p0.min_size">10</property>
+				<property name="hibernate.c3p0.max_size">30</property>
+					<property name="hibernate.c3p0.timeout">30</property>
+					<property name="hibernate.c3p0.max_statements">20</property> -->
+                 
+                    <!--  agroal properties -->
+                      <!-- <property name="hibernate.agroal.minSize">10</property>
+				<property name="hibernate.agroal.maxSize">30</property> -->
+	
+	<!-- Hibernate Propeties (Optional)To display the query in console-->
+	<property name="show_sql">true</property>
+	<property name="format_sql">true</property>
+	<!-- <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property> -->
+
+	<property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+	<!-- <property name="hibernate.connection.provider_class">org.hibernate.vibur.internal.ViburDBCPConnectionProvider</property> -->
+	<!-- <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property> -->
+                  
+   <!-- <property name="hibernate.connection.provider_class">org.hibernate.agroal.internal.AgroalConnectionProvider</property> -->
+	
+	<!-- Entity Class mapping location -->
+	<mapping resource="com/nt/entity/InsurancePolicy.hbm.xml"/>
+	
+	</session-factory>
+	</hibernate-configuration>

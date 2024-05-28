@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.nt.entity.Product" table="PRODTAB"
+		dynamic-insert="false">
+		<id name="pid" column="PID" type="int">
+			<!-- <generator class="assigned"/> -->
+			<!--<generator class="increment" /> -->
+			<!-- <generator class="sequence" /> -->
+			
+			<!-- CUSTOM SEQUENCE WITH SEQUENCE -->
+			<!-- <generator class="sequence">
+				<param name="sequence">PID_SEQ</param>
+			</generator> -->
+			
+			<!--<generator class="native"/> -->
+			
+			<!-- CUSTOM SEQUENCE WITH NATIVE -->
+			<!-- <generator class="native">
+				<param name="sequence-name">pid_seq</param>
+			</generator> -->
+			
+			
+		</id>
+		<property name="pname" column="PNAME" length="20" />
+		<property name="pcode" column="PCODE" type="string" />
+		<property name="pcost" column="PCOST" type="float" />
+		<property name="pqty" column="PQTY" type="float" />
+	</class>
+</hibernate-mapping>

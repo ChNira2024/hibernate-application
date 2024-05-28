@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.nt.entity.Product" table="PRODTAB_UUID" dynamic-insert="false">
+		<id name="pid" column="PID" type="string">
+			<!-- <generator class="uuid"/> -->
+			<generator class="guid"/>
+		</id>
+		<property name="pname" column="PNAME" length="20" />
+		<property name="pcode" column="PCODE" type="string" />
+		<property name="pcost" column="PCOST" type="float" />
+		<property name="pqty" column="PQTY" type="float" />
+	</class>
+</hibernate-mapping>
